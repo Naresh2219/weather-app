@@ -19,7 +19,7 @@ const Weather = () => {
             setError('Unable to fetch weather data');
             setWeather(null);
         } finally {
-            setLoading(false); // Set loading to false when fetching ends
+            setLoading(false); 
         }
     };
 

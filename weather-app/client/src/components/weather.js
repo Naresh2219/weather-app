@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './weather.css';
 
 const Weather = () => {
     const [city, setCity] = useState('');
     const [weather, setWeather] = useState(null);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false); // Add loading state
 
     const fetchWeather = async () => {
+        setLoading(true); // Set loading to true when fetching starts
         try {
             const response = await axios.get(`http://localhost:5000/api/weather?city=${city}`);
             setWeather(response.data);
@@ -15,24 +18,29 @@ const Weather = () => {
             console.error('Error fetching weather data:', error);
             setError('Unable to fetch weather data');
             setWeather(null);
+        } finally {
+            setLoading(false); // Set loading to false when fetching ends
         }
     };
 
     return (
-        <div>
+        <div className="weather-container">
             <input
                 type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 placeholder="Enter city"
             />
-            <button onClick={fetchWeather}>Get Weather</button>
+            <button onClick={fetchWeather} disabled={loading}>
+                {loading ? 'Loading...' : 'Get Weather'}
+            </button>
             {error && <p>{error}</p>}
-            {weather && (
+            {weather && !loading && ( // Show weather info only if not loading
                 <div>
-                    <h3>{weather.name}</h3>
+                    <h2>{weather.name}</h2>
                     <p>{weather.weather[0].description}</p>
                     <p>{Math.round(weather.main.temp - 273.15)}°C</p>
+                    <p>{Math.round((weather.main.temp - 273.15) * 9/5 + 32)}°F</p>
                 </div>
             )}
         </div>

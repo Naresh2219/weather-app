@@ -1,0 +1,25 @@
+.weather-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.weather-container h2 {
+    color: #555;
+}
+
+.weather-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.weather-container button {
+    margin-top: 10px;
+}
+
+.weather-container input {
+    margin-right: 10px;
+}

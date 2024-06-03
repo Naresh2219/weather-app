@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+}
+
+.App{
+  height: 4vmin;
+  pointer-events: fill;
+}
+
+/* @media (prefers-reduced-motion: no-preference) {
+  .App{
+    animation: App infinite 20s linear;
+    -webkit-animation: App infinite 20s linear;
+}
+} */
+
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App {
+  color: #61dafb;
+}
+
+/* @keyframes App {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */

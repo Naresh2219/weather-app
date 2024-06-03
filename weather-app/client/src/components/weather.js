@@ -9,7 +9,7 @@ const Weather = () => {
     const [loading, setLoading] = useState(false); // Add loading state
 
     const fetchWeather = async () => {
-        setLoading(true); // Set loading to true when fetching starts
+        setLoading(true);
         try {
             const response = await axios.get(`http://localhost:5000/api/weather?city=${city}`);
             setWeather(response.data);
@@ -35,7 +35,7 @@ const Weather = () => {
                 {loading ? 'Loading...' : 'Get Weather'}
             </button>
             {error && <p>{error}</p>}
-            {weather && !loading && ( // Show weather info only if not loading
+            {weather && !loading && (
                 <div>
                     <h2>{weather.name}</h2>
                     <p>{weather.weather[0].description}</p>

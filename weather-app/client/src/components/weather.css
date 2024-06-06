@@ -1,5 +1,5 @@
 .weather-container {
-    background-color: #f0f0f0;
+    background-color: #fcfdfd;
     padding: 20px;
     border-radius: 5px;
     max-width: 400px;
@@ -12,7 +12,7 @@
 }
 
 .weather-container button:disabled {
-    background-color: #ccc;
+    background-color: #eff1f4;
     cursor: not-allowed;
 }
 
